@@ -1,115 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
 
-        <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+<head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
         Remove this if you use the .htaccess -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-        <title>GAME</title>
-        <meta name="description" content="">
-        <meta name="author" content="satur">
-
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-        <script src="game.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css">
-        <style>
-            #game{
-                margin-top: 100px;
-            }
-
-            #game #countdown h1{
-                font-size: 100px;
-                color: #666666;
-                margin: 50px;
-            }
-
-            #game #play{
-                margin: 350px;
-            }
-
-            #game #play a{
-                padding: 30px;
-            }
-
-            body{
-                background-color: #efefef;
-            }
-
-            table tr, table td{
-                border: #4CAF50 2px solid;
-                font-weight: bold;
-            }
-
-            #letters .btn{
-                border: #cacaca solid 1px;
-                margin: 5px;
-            }
-        </style>
-    </head>
-    <style>
-
-    </style>
-    <body>
-        <div id="game" class="container">
-            <div id="play" class="row justify-content-md-center">
-                <a onclick="play();" class="btn btn-success">PLAY</a>
-            </div>
-
-            <div hidden="" id="canvas" class="row justify-content-md-center">
-                <div id="message" class="alert  invisible" role="alert">
-
-                </div>
-                <div id="countdown" class="col-12 text-center">
-                    <h1></h1>
-
-                </div>
-                <div class="col-md-8">
-                    <center>
-                        <table id="table" class="table ">
-                            <tr id="row" class="text-center">
-
-                            </tr>
-                        </table> 
-                    </center>
-                </div>
+    <title>The Hanged game</title>
+    <meta name="description" content="">
+    <meta name="author" content="satur">
 
 
-                <center>
-                    <div id="letters" class="col-md-8">
-                        <a onclick="check('A');" class="btn btn-default" id="btn_a">A</a>
-                        <a onclick="check('B');" class="btn btn-default" id="btn_b">B</a>
-                        <a onclick="check('C');" class="btn btn-default" id="btn_c">C</a>
-                        <a onclick="check('D');" class="btn btn-default" id="btn_d">D</a>
-                        <a onclick="check('E');" class="btn btn-default" id="btn_e">E</a>
-                        <a onclick="check('F');" class="btn btn-default" id="btn_f">F</a>
-                        <a onclick="check('G');" class="btn btn-default" id="btn_g">G</a>
-                        <a onclick="check('H');" class="btn btn-default" id="btn_h">H</a>
-                        <a onclick="check('I');" class="btn btn-default" id="btn_i">I</a>
-                        <a onclick="check('J');" class="btn btn-default" id="btn_j">J</a>
-                        <a onclick="check('K');" class="btn btn-default" id="btn_k">K</a>
-                        <a onclick="check('L');" class="btn btn-default" id="btn_l">L</a>
-                        <a onclick="check('M');" class="btn btn-default" id="btn_m">M</a>
-                        <a onclick="check('N');" class="btn btn-default" id="btn_n">N</a>
-                        <a onclick="check('O');" class="btn btn-default" id="btn_o">O</a>
-                        <a onclick="check('P');" class="btn btn-default" id="btn_p">P</a>
-                        <a onclick="check('Q');" class="btn btn-default" id="btn_q">Q</a>
-                        <a onclick="check('R');" class="btn btn-default" id="btn_r">R</a>
-                        <a onclick="check('S');" class="btn btn-default" id="btn_s">S</a>
-                        <a onclick="check('T');" class="btn btn-default" id="btn_t">T</a>
-                        <a onclick="check('U');" class="btn btn-default" id="btn_u">U</a>
-                        <a onclick="check('V');" class="btn btn-default" id="btn_v">V</a>
-                        <a onclick="check('W');" class="btn btn-default" id="btn_w">W</a>
-                        <a onclick="check('X');" class="btn btn-default" id="btn_x">X</a>
-                        <a onclick="check('Y');" class="btn btn-default" id="btn_y">Y</a>
-                        <a onclick="check('Z');" class="btn btn-default" id="btn_z">Z</a>
-                    </div>
-                </center>
-            </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script src="game.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css">
+    <link href="game.css" rel="stylesheet">
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="game" class="container">
+        <div id="play" class="row justify-content-md-center">
+            <a onclick="play();" class="btn btn-success">PLAY</a>
         </div>
 
-    </body>
-</html>
+        <div id="canvas" class="row justify-content-md-center">
+            <div id="message" class="alert" role="alert"></div>
+
+            <div id="penalty" class="col-12 text-center">
+                <h5 class="text-danger"></h5>
+            </div>
+
+            <div id="countdown" class="col-12 text-center">
+                <h1></h1>
+            </div>
+
+            <div class="col-8 text-center">
+                <table id="table" class="table ">
+                    <tr id="row" class="text-center"></tr>
+                </table>
+            </div>
+
+            <div id="letters" class="col-8 text-center"></div>
+
+            <div id="info" class="col-12 text-center">
+                <h6 class=""> Choose a letter and guess the word!</h6>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html

@@ -1,0 +1,66 @@
+body {
+    background-image: url(https://i0.wp.com/emergencias.ure.es/wp-content/uploads/2017/09/solid-color-wallpaper-11.jpg?ssl=1);
+    background-color: #efefef;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#game {
+    margin-top: 150px;
+}
+
+#game #countdown h1 {
+    font-size: 100px;
+    color: white;
+    margin: 50px;
+}
+
+#game #play {
+    margin: 350px;
+}
+
+#game #play a {
+    color: white;
+}
+
+#game #play a {
+    padding: 30px;
+    border: 1px solid;
+    box-shadow: 1px 1px 100px black;
+}
+
+table tr,
+table td {
+    border: #4CAF50 2px solid;
+    font-weight: bold;
+}
+
+table td a {
+    color: white !important;
+}
+
+#letters .btn {
+    border: white solid 1px;
+    margin: 5px;
+}
+
+#penalty,
+#message {
+    position: absolute;
+}
+
+#message {
+    z-index: 2;
+    cursor: pointer;
+}
+
+#penalty h5 {
+    font-size: 50px;
+}
+
+#info,
+#letters {
+    color: white;
+    margin: 20px;
+    ;
+}
