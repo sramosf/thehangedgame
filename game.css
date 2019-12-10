@@ -1,13 +1,26 @@
 body {
     background-image: url(https://i0.wp.com/emergencias.ure.es/wp-content/uploads/2017/09/solid-color-wallpaper-11.jpg?ssl=1);
     background-color: #efefef;
-    background-size: 100%;
+    height: 100%;
+    background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#game {
-    margin-top: 150px;
+a {
+    cursor: pointer;
 }
+
+
+/* Normalize */
+
+html,
+body {
+    height: 100%;
+}
+
+
+/* End Normalize */
 
 #game #countdown h1 {
     font-size: 100px;
@@ -15,18 +28,33 @@ body {
     margin: 50px;
 }
 
-#game #play {
-    margin: 350px;
-}
-
 #game #play a {
     color: white;
 }
 
-#game #play a {
-    padding: 30px;
-    border: 1px solid;
+#game #play .btn-group {
     box-shadow: 1px 1px 100px black;
+}
+
+#game #play h5:first-child {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: -40px;
+    letter-spacing: 6px;
+}
+
+#game #play h5:nth-of-type(2n) {
+    font-size: 100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#game #play h5:last-child {
+    padding: 20px;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#canvas {
+    display: none;
 }
 
 table tr,
@@ -42,6 +70,7 @@ table td a {
 #letters .btn {
     border: white solid 1px;
     margin: 5px;
+    cursor: pointer;
 }
 
 #penalty,
@@ -52,15 +81,24 @@ table td a {
 #message {
     z-index: 2;
     cursor: pointer;
+    display: none;
 }
 
 #penalty h5 {
     font-size: 50px;
 }
 
+#info h6 span {
+    font-weight: bold;
+}
+
+#info h6 a:hover {
+    color: white;
+}
+
 #info,
-#letters {
+#letters,
+#play h5 {
     color: white;
     margin: 20px;
-    ;
 }

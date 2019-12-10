@@ -2,25 +2,50 @@
 var words = ["DYSNEY", "PHONE", "IGNORANT", "HOUSE", "SISTER", "INTERNATIONAL", "TERRIBLE", "ANDROID", "PIG", "ELEPHANT"];
 var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var countdown = 100;
-var penalty = 10;
+var penalty = 0;
 
 // SET UP GAME INI
 var count2Win = Number(0);
 var word = words[Math.floor(Math.random() * (words.length))];
+var difficultyText = "";
 
 
 // ON PLAY
-function play() {
+function play(d) {
 
-    setUpGame();
+    setUpGame(d);
 
-    function setUpGame() {
+    function setUpGame(d) {
+
+        switch (d) {
+            case 1:
+                penalty += 5;
+                difficultyText = "Easy";
+                break;
+            case 2:
+                penalty += 10;
+                difficultyText = "Medium";
+                break;
+            case 3:
+                penalty += 15;
+                difficultyText = "Advanced";
+                break;
+            case 4:
+                penalty += 20;
+                difficultyText = "Insane";
+                break;
+            default:
+                break;
+        }
+
         $("#play").hide();
-        $("#canvas").removeAttr("hidden");
+        $("#canvas").css("display", "inline-flex");
         $("#message").hide();
         $("#penalty").hide();
         $("#penalty h5").html("-" + penalty)
         $("#countdown h1").html(countdown);
+        $("#info h6:nth-of-type(2n) span").html(difficultyText);
+
         showLetters();
 
         // CREATE TABLE
@@ -34,19 +59,27 @@ function play() {
                 $("#letters").append(`<a  class="btn let btn-default" id="btn_` + letters[i].toLowerCase() + `">` + letters[i] + `</a>`);
             }
         }
+
+        pressLetter();
     }
 
-    // ON LETTER PRESSED
-    $(".let").click(function() {
-        var id = $(this).attr("id").charAt(4);
-        check(id);
-    })
+    function pressLetter() {
+        // ON LETTER PRESSED
+        $(".let").click(function() {
+            var id = $(this).attr("id").charAt(4);
+            check(id);
+        })
+    }
 
     // START COUNTDOWN
     var t = setInterval(function() {
         $("#countdown h1").html(Number($("#countdown h1").html()) - Number(1));
         checkCountDown();
     }, 1000);
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
     function checkCountDown() {
         if ($("#countdown h1").html() < Number(1)) {
@@ -58,7 +91,7 @@ function play() {
         var message = $("#message");
         message.show();
         message.addClass("alert-success");
-        message.html("You WIN! <a onclick='playAgain();'>Play again.</a>");
+        message.html("You WIN! <a onclick='playAgain();'>Try again.</a>");
         gameover();
     }
 
@@ -66,7 +99,7 @@ function play() {
         var message = $("#message");
         message.show();
         message.addClass("alert-danger");
-        message.html("You Lose! <a onclick='playAgain();'>Play again.</a>");
+        message.html("You Lose! <a onclick='playAgain();'>Try again.</a>");
         $("td a").removeClass("invisible");
         gameover();
     }

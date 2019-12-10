@@ -3,14 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-
-    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-        Remove this if you use the .htaccess -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <title>The Hanged game</title>
-    <meta name="description" content="">
-    <meta name="author" content="satur">
+    <meta name="description" content="HangMan">
+    <meta name="author" content="FrisKy">
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -24,36 +21,62 @@
 </style>
 
 <body>
-    <div id="game" class="container">
-        <div id="play" class="row justify-content-md-center">
-            <a onclick="play();" class="btn btn-success">PLAY</a>
+    <div id="game" class=" h-100 container">
+        <div id="play" class="row h-100 justify-content-center align-items-center">
+            <div class="col">
+                <h5 class="text-center">The Hanged Game</h5>
+                <h5 class="text-center">PLAY</h5>
+                <div class="text-center">
+                    <div class=" btn-group btn-group-lg btn-group-justified" role="group" aria-label="...">
+                        <a onclick="play(1);" class="btn btn-success">EASY</a>
+                        <a onclick="play(2);" class="btn btn-warning">MEDIUM</a>
+                        <a onclick="play(3);" class="btn btn-danger">ADVANCED</a>
+                        <a onclick="play(4);" class="btn btn-dark">INSANE</a>
+                    </div>
+                </div>
+                <h5 class="text-center">Game by: <a href="https://github.com/sramosf">FrisKy</a></h5>
+            </div>
         </div>
 
-        <div id="canvas" class="row justify-content-md-center">
-            <div id="message" class="alert" role="alert"></div>
+        <div id="canvas" class="row h-100 justify-content-center align-items-center">
+            <div class="col">
+                <div class="row h-100 justify-content-center">
+                    <div id="message" class=" col-8 mx-auto alert text-center" role="alert"></div>
+                </div>
 
-            <div id="penalty" class="col-12 text-center">
-                <h5 class="text-danger"></h5>
-            </div>
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div id="penalty" class="col text-center">
+                        <h5 class="text-danger"></h5>
+                    </div>
+                </div>
 
-            <div id="countdown" class="col-12 text-center">
-                <h1></h1>
-            </div>
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div id="countdown" class="col text-center">
+                        <h1></h1>
+                    </div>
+                </div>
 
-            <div class="col-8 text-center">
-                <table id="table" class="table ">
-                    <tr id="row" class="text-center"></tr>
-                </table>
-            </div>
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col text-center">
+                        <table id="table" class="table ">
+                            <tr id="row" class="text-center"></tr>
+                        </table>
+                    </div>
+                </div>
 
-            <div id="letters" class="col-8 text-center"></div>
-
-            <div id="info" class="col-12 text-center">
-                <h6 class=""> Choose a letter and guess the word!</h6>
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div id="letters" class="col text-center"></div>
+                </div>
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div id="info" class="col text-center">
+                        <h6 class=""> Choose a letter and guess the word!</h6>
+                        <h6 class=""> Dificulty: <span class="text-danger"></span> <a href="">(Change)</a></h6>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
 </body>
 
-</html
+</html>
