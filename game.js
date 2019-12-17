@@ -1,14 +1,19 @@
 // CONFIG
-var words = ["DYSNEY", "PHONE", "IGNORANT", "HOUSE", "SISTER", "INTERNATIONAL", "TERRIBLE", "ANDROID", "PIG", "ELEPHANT"];
+var wordsJsonURL = "https://raw.githubusercontent.com/words/an-array-of-english-words/master/words.json";
 var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var countdown = 100;
 var penalty = 0;
 
 // SET UP GAME INI
 var count2Win = Number(0);
-var word = words[Math.floor(Math.random() * (words.length))];
 var difficultyText = "";
+var arrWords = [];
+var word;
 
+$.getJSON(wordsJsonURL, function(data) {
+    arrWords = data;
+    word = arrWords[Math.floor(Math.random() * (arrWords.length))].toUpperCase();
+});
 
 // ON PLAY
 function play(d) {
@@ -158,7 +163,7 @@ function playAgain() {
 
     function reset() {
         count2Win = Number(0);
-        word = words[Math.floor(Math.random() * (words.length))];
+        word = arrWords[Math.floor(Math.random() * (arrWords.length))].toUpperCase();
         $("#table tr").html("");
         $("#letters").html("");
     }
